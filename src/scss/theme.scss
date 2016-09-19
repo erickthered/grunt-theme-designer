@@ -1,0 +1,14 @@
+@import 'colors';
+@import 'mixins';
+
+@import 'headers';
+@import 'buttons';
+
+.section-title {
+    font-size: 26pt;
+    font-weight: bold;
+    color: #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}

@@ -1,0 +1,25 @@
+@import '_colors';
+
+@mixin button($bkgColor, $color) {
+    background-color: $bkgColor;
+    border-color: $bkgColor * $lightenFactor;
+    color: $color;
+}
+
+@mixin hover-button($bkgColor, $color) {
+    background-color: $bkgColor * $darkenFactor;
+    border-color: $bkgColor;
+    color: $color * $lightenFactor;
+}
+
+@mixin outline-button($color) {
+    background-color: transparent;
+    border: 2px solid $color;
+    color: $color;
+}
+
+@mixin hover-outline-button($color) {
+    background-color: transparent;
+    border: 2px solid $color * $darkenFactor;
+    color: $color * $darkenFactor;
+}

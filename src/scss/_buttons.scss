@@ -1,0 +1,86 @@
+@import 'colors';
+@import 'mixins';
+
+/** --------- DEFAULT BUTTONS ---------- */
+.btn-default-outline {
+    @include outline-button($default);
+}
+.btn-default-outline:hover {
+    @include hover-outline-button($default);
+}
+.btn-default {
+    @include button($default, $default-fg);
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active {
+    @include hover-button($default, $default-fg);
+}
+
+/** --------- PRIMARY BUTTONS ---------- */
+.btn-primary-outline {
+    @include outline-button($primary);
+}
+.btn-primary-outline:hover {
+    @include hover-outline-button($primary);
+}
+.btn-primary {
+    @include button($primary, $primary-fg);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    @include hover-button($primary, $primary-fg);
+}
+
+/** --------- INFO BUTTONS ---------- */
+.btn-info-outline {
+    @include outline-button($info);
+}
+.btn-info-outline:hover {
+    @include hover-outline-button($info);
+}
+.btn-info {
+    @include button($info, $info-fg);
+}
+.btn-info:hover, .btn-info:focus, .btn-info:active {
+    @include hover-button($info, $info-fg);
+}
+
+/** --------- SUCCESS BUTTONS ---------- */
+.btn-success-outline {
+    @include outline-button($success);
+}
+.btn-success-outline:hover {
+    @include hover-outline-button($success);
+}
+.btn-success {
+    @include button($success, $success-fg);
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    @include hover-button($success, $success-fg);
+}
+
+/** --------- WARNING BUTTONS ---------- */
+.btn-warning-outline {
+    @include outline-button($warning);
+}
+.btn-warning-outline:hover {
+    @include hover-outline-button($warning);
+}
+.btn-warning {
+    @include button($warning, $warning-fg);
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
+    @include hover-button($warning, $warning-fg);
+}
+
+/** --------- DANGER BUTTONS ---------- */
+.btn-danger-outline {
+    @include outline-button($danger);
+}
+.btn-danger-outline:hover {
+    @include hover-outline-button($danger);
+}
+.btn-danger {
+    @include button($danger, $danger-fg);
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
+    @include hover-button($danger, $danger-fg);
+}

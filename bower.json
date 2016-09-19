@@ -1,0 +1,25 @@
+{
+  "name": "admin",
+  "authors": [
+    "Erick Rojas <erickrojaz@gmail.com>"
+  ],
+  "description": "Plantilla de administración",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.4",
+    "bootstrap": "3.3.7",
+    "font-awesome": "4.6.3"
+  }
+}
