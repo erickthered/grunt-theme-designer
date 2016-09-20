@@ -40,6 +40,10 @@
     background-color: $bgColor * $lightenFactor;
     border-color: $bgColor;
     color: $fgColor;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
     .navbar-brand {
         color: $fgColor;
     }

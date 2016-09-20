@@ -1,7 +1,6 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-contrib-copy');
-
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -18,6 +17,16 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        bower: {
+            install: {
+                options: {
+                    targetDir: 'src/components'
+                }
+            }
+        },
+        clean: {
+            all: ['src/components', 'dist']
+        },
         connect: {
             server: {
                 options: {
@@ -27,15 +36,41 @@ module.exports = function (grunt) {
                     livereload: true                }
             }
         },
-        open: {
-            dev: {
-                path: 'http://localhost:8000/index.html'
+        concat: {
+            css: {
+                options: {
+                    separator: '\n'
+                },
+                src: ['src/components/bootstrap/dist/css/bootstrap.css', 'src/components/font-awesome/css/font-awesome.css', 'src/css/*.css'],
+                dest: 'dist/css/all.css'
+            },
+            javascript: {
+                options: {
+                    separator: ';',
+                },
+                src: ['src/components/jquery/dist/jquery.js','src/components/bootstrap/dist/js/bootstrap.js','src/js/*.js'],
+                dest: 'dist/js/all.js',
+            },
+            tests: {
+                options: {
+                    separator: ';',
+                },
+                src: ['src/components/mocha/mocha.js', 'node_modules/expect.js/index.js', 'src/tests/*.js'],
+                dest: 'dist/js/tests.js'
             }
         },
         copy: {
+            favicon: {
+                expand: true,
+                flatten: true,
+                src: 'src/favicon.ico',
+                dest: 'dist/'
+            },
             html: {
-                src: 'src/index.html',
-                dest: 'dist/index.html'
+                expand: true,
+                flatten: true,
+                src: 'src/*.html',
+                dest: 'dist/'
             },
             fonts: {
                 expand: true,
@@ -43,59 +78,25 @@ module.exports = function (grunt) {
                 src: ['src/components/bootstrap/fonts/**', 'src/components/font-awesome/fonts/**'],
                 dest: 'dist/fonts/',
                 filter: 'isFile'
-            }
-        },
-        bower: {
-            install: {
-                options: {
-                    targetDir: 'src/components'
-                }
-            }
-        },
-        jshint: {
-            all: [
-                'gruntfile.js',
-                'src/js/*.js'
-            ]
-        },
-        concat: {
-            javascript: {
-                options: {
-                    separator: ';',
-                },
-                src: [
-                    'src/components/jquery/dist/jquery.js',
-                    'src/components/bootstrap/dist/js/bootstrap.js',
-                    'src/js/*.js'
-                ],
-                dest: 'dist/js/all.js',
             },
-            css: {
+            tests: {
+                files: [
+                    {expand: true, flatten: true, src: ['src/components/mocha/mocha.css'], dest: 'dist/css/', filter: 'isFile'},
+                ]
+            }
+        },
+        csslint: {
+            all: {
                 options: {
-                    separator: '\n'
+                    import: 2
                 },
-                src: [
-                    'src/components/bootstrap/dist/css/bootstrap.css',
-                    'src/components/font-awesome/css/font-awesome.css',
-                    'src/css/*.css',
-                ],
-                dest: 'dist/css/all.css'
+                src: ['src/css/*.css']
             }
         },
         cssmin: {
             all: {
                 files: {
                     'dist/css/all.min.css': ['dist/css/all.css']
-                }
-            }
-        },
-        uglify: {
-            options: {
-                mangle: false
-            },
-            all: {
-                files: {
-                    'dist/js/all.min.js': ['dist/js/all.js']
                 }
             }
         },
@@ -109,12 +110,40 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        csslint: {
+        jshint: {
+            all: ['gruntfile.js', 'src/js/*.js']
+        },
+        mkdir: {
             all: {
                 options: {
-                    import: 2
+                    create: ['dist', 'dist/js', 'dist/css', 'dist/img', 'dist/fonts']
                 },
-                src: ['src/css/*.css']
+            },
+        },
+        open: {
+            dev: {
+                path: 'http://localhost:8000/index.html'
+            }
+        },
+        sass: {
+            dist: {
+                files: [{
+                    cwd: 'src/scss/',
+                    expand: true,
+                    src: ['*.scss'],
+                    dest: './src/css',
+                    ext: '.css'
+                }]
+            }
+        },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            all: {
+                files: {
+                    'dist/js/all.min.js': ['dist/js/all.js']
+                }
             }
         },
         watch: {
@@ -129,88 +158,53 @@ module.exports = function (grunt) {
                     spawn: false,
                 }
             },
-            js: {
-                files: [
-                    'gruntfile.js',
-                    'src/js/*.js'
-                ],
-                tasks: [
-                    'javascript'
-                ],
-                options: {
-                    spawn: false,
-                    livereload: true
-                },
-            },
             css: {
-                files: [
-                    'src/css/*.css',
-                ],
-                tasks: [
-                    'css'
-                ],
+                files: [ 'src/css/*.css', ],
+                tasks: [ 'css' ],
                 options: {
                     spawn: false,
                     livereload: true
                 }
             },
             html: {
-                files: [
-                    'src/*.html'
-                ],
-                tasks: [
-                    'copy:html'
-                ],
+                files: [ 'src/*.html' ],
+                tasks: [ 'copy:html' ],
                 options: {
                     spawn: false,
                     livereload: true
                 },
             },
             images: {
-                files: [
-                    'src/img/**/*.{png,jpg,gif}'
-                ],
-                tasks: [
-                    'imagemin'
-                ],
+                files: [ 'src/img/**/*.{png,jpg,gif}'],
+                tasks: [ 'imagemin' ],
                 options: {
                     spawn: false
                 }
             },
+            js: {
+                files: [ 'gruntfile.js', 'src/js/*.js' ],
+                tasks: [ 'javascript' ],
+                options: {
+                    spawn: false,
+                    livereload: true
+                },
+            },
+            tests: {
+                files: ['src/tests/*.js'],
+                tasks: ['concat:tests', 'copy:tests'],
+                options: {
+                    spawn: false,
+                }
+            },
             sass: {
-                files: [
-                    'src/scss/*.scss'
-                ],
-                tasks: [
-                    'sass', 'css'
-                ],
+                files: [ 'src/scss/*.scss' ],
+                tasks: [ 'sass', 'css' ],
                 options: {
                     spawn: false,
                     livereload: true
                 }
             }
         },
-        mkdir: {
-            all: {
-                options: {
-                    create: ['dist', 'dist/js', 'dist/css', 'dist/img', 'dist/fonts']
-                },
-            },
-        },
-        clean: {
-            all: ['src/components', 'dist']
-        },
-        sass: {
-            dist: {
-                files: [{
-                    cwd: 'src/scss/',
-                    expand: true,
-                    src: ['*.scss'],
-                    dest: './src/css',
-                    ext: '.css'
-                }]
-            }
-        }
     });
 
     // grunt.initConfig({
@@ -230,7 +224,7 @@ module.exports = function (grunt) {
     //     },
     // });
 
-    grunt.registerTask('prepare', ['clean:all', 'mkdir', 'bower', 'javascript', 'css', 'sass', 'imagemin', 'copy']);
+    grunt.registerTask('prepare', ['clean:all', 'mkdir', 'bower', 'javascript', 'css', 'sass', 'imagemin', 'copy', 'concat:tests']);
     grunt.registerTask('javascript', ['jshint', 'concat:javascript', 'uglify']);
     grunt.registerTask('css', ['csslint', 'concat:css', 'cssmin']);
     grunt.registerTask('serve', ['connect', 'open:dev']);
