@@ -3,4 +3,5 @@ Thumbs.db
 .sass-cache
 node_modules
 src/components
+src/css
 dist

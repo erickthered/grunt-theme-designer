@@ -47,4 +47,4 @@ You can modify the javascript/css dependencies by editing bower.json through the
 
 ### Grunt Customization
 
-If you need to use additional grunt tools, you can install 
+If you need to use additional grunt tools, you can install those tools using npm and then edit gruntfile.js according to your needs.
