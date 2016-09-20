@@ -9,132 +9,240 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
     <div class="container">
-        <section>
-            <div class="section-title">Headings</div>
-            <div class="row">
-                <div class="col-sm-4 col-xs-6">
-                    <h1>Heading 1</h1>
-                    <h2>Heading 2</h2>
-                    <h3>Heading 3</h3>
-                    <h4>Heading 4</h4>
-                    <h5>Heading 5</h5>
-                    <h6>Heading 6</h6>
-                </div>
-                <div class="col-sm-4 col-xs-6">
-                    <h1 class="h-default">Heading 1</h1>
-                    <h2 class="h-primary">Heading 2</h2>
-                    <h3 class="h-info">Heading 3</h3>
-                    <h4 class="h-success">Heading 4</h4>
-                    <h5 class="h-warning">Heading 5</h5>
-                    <h6 class="h-danger">Heading 6</h6>
+        <div class="row">
+            <div class="col-sm-2">
+                Button size:
+                <select class="form-control select-sm" id="btn-size">
+                    <option value="btn-block">Block</option>
+                    <option value="btn-lg">Large</option>
+                    <option value="btn-md">Medium</option>
+                    <option value="btn-sm">Small</option>
+                    <option value="btn-xs">Extra Small</option>
+                </select>
+                Button style:
+                <select class="form-control select-sm" id="btn-style">
+                    <option value="">Solid</option>
+                    <option value="outlined">Outlined</option>
+                </select>
+                Header style:
+                <select class="form-control select-sm" id="header-style">
+                    <option value="">None</option>
+                    <option value="h-default">Default</option>
+                    <option value="h-primary">Primary</option>
+                    <option value="h-info">Info</option>
+                    <option value="h-success">Success</option>
+                    <option value="h-warning">Warning</option>
+                    <option value="h-danger">Danger</option>
+                </select>
+                Navbar style:
+                <select class="form-control select-sm" id="navbar-style">
+                    <option value="">None</option>
+                    <option value="navbar-inverse">Inverse</option>
+                    <option value="navbar-default">Default</option>
+                    <option value="navbar-primary">Primary</option>
+                    <option value="navbar-info">Info</option>
+                    <option value="navbar-success">Success</option>
+                    <option value="navbar-warning">Warning</option>
+                    <option value="navbar-danger">Danger</option>
+                </select>
+            </div>
+            <div class="col-sm-10">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Basic Elements</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Forms</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <section>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h1>Heading 1</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis porttitor quam, nec porttitor erat imperdiet eu. Nullam ac metus quis eros varius lobortis sit amet quis quam. Donec augue nunc, efficitur vitae vulputate ut, laoreet nec elit. Etiam blandit erat eget luctus feugiat. Pellentesque finibus viverra tempor. In hac habitasse platea dictumst. Nulla finibus enim massa, ut condimentum quam eleifend sed. Ut eu consequat orci.</p>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-primary centered">
+                                                <i class="fa fa-user"></i> Primary
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-success text-center">
+                                                <i class="fa fa-cog"></i> Success
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-danger text-center">
+                                                <i class="fa fa-university"></i> Danger
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h2>Heading 2</h2>
+                                    <p>Pellentesque eleifend finibus sem, in porttitor quam facilisis in. Maecenas gravida semper pellentesque. Maecenas faucibus varius eros quis dignissim. Nunc sed cursus odio. Sed ornare leo at felis egestas consectetur. Vestibulum et ultricies felis, at lacinia nisi. Cras vel commodo leo. Mauris augue dui, sagittis in nisl eu, posuere commodo neque. Aenean eu risus sagittis, euismod orci nec, commodo purus. Curabitur eu felis non sem tincidunt vehicula id vel tortor. Aliquam vulputate sit amet justo ac facilisis. Maecenas lobortis odio mauris, in convallis sapien cursus nec. Phasellus vel ipsum magna. Suspendisse vel suscipit sapien, nec mollis dui.</p>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-default centered">
+                                                <i class="fa fa-user"></i> Default
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-info text-center">
+                                                <i class="fa fa-cog"></i> Info
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-block btn-warning text-center">
+                                                <i class="fa fa-warning"></i> Warning
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>Heading 3</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis porttitor quam, nec porttitor erat imperdiet eu. Nullam ac metus quis eros varius lobortis sit amet quis quam. Donec augue nunc, efficitur vitae vulputate ut, laoreet nec elit. Etiam blandit erat eget luctus feugiat. Pellentesque finibus viverra tempor. In hac habitasse platea dictumst. Nulla finibus enim massa, ut condimentum quam eleifend sed. Ut eu consequat orci.</p>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle btn btn-primary btn-block" data-toggle="dropdown" href="">Click to Dropdown <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu btn-block">
+                                                            <li><a href="" title="Bootstrap Themes Generator">Action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Another action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a class="dropdown-toggle" data-toggle="dropdown" href="">Dropdown 2</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle btn btn-danger btn-block" data-toggle="dropdown" href="">Click to Dropdown <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu btn-block">
+                                                            <li><a href="" title="Bootstrap Themes Generator">Action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Another action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a class="dropdown-toggle" data-toggle="dropdown" href="">Dropdown 2</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>Heading 4</h4>
+                                            <p>Pellentesque eleifend finibus sem, in porttitor quam facilisis in. Maecenas gravida semper pellentesque. Maecenas faucibus varius eros quis dignissim. Nunc sed cursus odio. Sed ornare leo at felis egestas consectetur. Vestibulum et ultricies felis, at lacinia nisi. Cras vel commodo leo. Mauris augue dui, sagittis in nisl eu, posuere commodo neque. Aenean eu risus sagittis, euismod orci nec, commodo purus. Curabitur eu felis non sem tincidunt vehicula id vel tortor. Aliquam vulputate sit amet justo ac facilisis. Maecenas lobortis odio mauris, in convallis sapien cursus nec. Phasellus vel ipsum magna. Suspendisse vel suscipit sapien, nec mollis dui.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Heading 5</h5>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis porttitor quam, nec porttitor erat imperdiet eu. Nullam ac metus quis eros varius lobortis sit amet quis quam. Donec augue nunc, efficitur vitae vulputate ut, laoreet nec elit. Etiam blandit erat eget luctus feugiat. Pellentesque finibus viverra tempor. In hac habitasse platea dictumst. Nulla finibus enim massa, ut condimentum quam eleifend sed. Ut eu consequat orci.</p>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle btn btn-info btn-block" data-toggle="dropdown" href="">Dropdown <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu btn-block">
+                                                            <li><a href="" title="Bootstrap Themes Generator">Action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Another action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a class="dropdown-toggle" data-toggle="dropdown" href="">Dropdown 2</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle btn btn-success btn-block" data-toggle="dropdown" href="">Click to Dropdown <b class="caret"></b></a>
+                                                        <ul class="dropdown-menu btn-block">
+                                                            <li><a href="" title="Bootstrap Themes Generator">Action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Another action</a></li>
+                                                            <li><a href="" title="Bootstrap Themes Generator">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a class="dropdown-toggle" data-toggle="dropdown" href="">Dropdown 2</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>                                            <h6>Heading 6</h6>
+                                            <p>Pellentesque eleifend finibus sem, in porttitor quam facilisis in. Maecenas gravida semper pellentesque. Maecenas faucibus varius eros quis dignissim. Nunc sed cursus odio. Sed ornare leo at felis egestas consectetur. Vestibulum et ultricies felis, at lacinia nisi. Cras vel commodo leo. Mauris augue dui, sagittis in nisl eu, posuere commodo neque. Aenean eu risus sagittis, euismod orci nec, commodo purus. Curabitur eu felis non sem tincidunt vehicula id vel tortor. Aliquam vulputate sit amet justo ac facilisis. Maecenas lobortis odio mauris, in convallis sapien cursus nec. Phasellus vel ipsum magna. Suspendisse vel suscipit sapien, nec mollis dui.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-6">
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <section>
+                            <div class="section-title">Forms</div>
+                        </section>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                    <div role="tabpanel" class="tab-pane" id="settings">...</div>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="section-title">Buttons</div>
-            <div class="row">
-                <div class="col-sm-2 col-xs-4">
-                    <button class="btn btn-block btn-default">Button Default</button>
-                    <button class="btn btn-block btn-primary">Button Primary</button>
-                    <button class="btn btn-block btn-info">Button Info</button>
-                    <button class="btn btn-block btn-success">Button Success</button>
-                    <button class="btn btn-block btn-warning">Button Warning</button>
-                    <button class="btn btn-block btn-danger">Button Danger</button>
-                </div>
-                <div class="col-sm-2 col-xs-4">
-                    <div class="btn-group">
-                        <a class="btn btn-default" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-info" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-success" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-warning" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a class="btn btn-danger" href="" title="Bootstrap 3 themes generator">Default</a>
-                        <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="" title="Bootstrap 3 themes generator"><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="" title="Bootstrap 3 themes generator">Action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Another action</a></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="" title="Bootstrap 3 themes generator">Separated link</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-4">
-                    <button class="btn btn-default-outline">
-                        Default Outlined
-                    </button>
-                    <button class="btn btn-primary-outline">
-                        Primary Outlined
-                    </button>
-                    <button class="btn btn-info-outline">
-                        Info Outlined
-                    </button>
-                    <button class="btn btn-success-outline">
-                        Success Outlined
-                    </button>
-                    <button class="btn btn-warning-outline">
-                        Warning Outlined
-                    </button>
-                    <button class="btn btn-danger-outline">
-                        Danger Outlined
-                    </button>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section-title">Forms</div>
-        </section>
+        </div>
     </div>
     <script src="js/all.min.js"></script>
 </body>

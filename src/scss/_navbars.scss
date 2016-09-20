@@ -1,0 +1,21 @@
+@import 'colors';
+@import 'mixins';
+
+.navbar-default {
+    @include bar($default, $default-fg);
+}
+.navbar-primary {
+    @include bar($primary, $primary-fg);
+}
+.navbar-success {
+    @include bar($success, $success-fg);
+}
+.navbar-info {
+    @include bar($info, $info-fg);
+}
+.navbar-warning {
+    @include bar($warning, $warning-fg);
+}
+.navbar-danger {
+    @include bar($danger, $danger-fg);
+}

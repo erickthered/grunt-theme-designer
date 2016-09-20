@@ -4,22 +4,73 @@
     background-color: $bkgColor;
     border-color: $bkgColor * $lightenFactor;
     color: $color;
+    span {
+        color: $color;
+    }
 }
 
 @mixin hover-button($bkgColor, $color) {
     background-color: $bkgColor * $darkenFactor;
     border-color: $bkgColor;
     color: $color * $lightenFactor;
+    span {
+        color: $color;
+    }
 }
 
 @mixin outline-button($color) {
     background-color: transparent;
     border: 2px solid $color;
     color: $color;
+    span {
+        color: $color;
+    }
 }
 
 @mixin hover-outline-button($color) {
     background-color: transparent;
     border: 2px solid $color * $darkenFactor;
     color: $color * $darkenFactor;
+    span {
+        color: $color;
+    }
+}
+
+@mixin bar($bgColor, $fgColor) {
+    background-color: $bgColor * $lightenFactor;
+    border-color: $bgColor;
+    color: $fgColor;
+    .navbar-brand {
+        color: $fgColor;
+    }
+    li.active {
+        background-color: $bgColor * $darkenFactor;
+        color: $fgColor;
+        a {
+            color: $fgColor;
+        }
+        a:hover {
+            background-color: $bgColor * $darkenFactor;
+            color: $fgColor;
+        }
+    }
+    li {
+        background-color: $bgColor * $lightenFactor;
+        color: $fgColor;
+        a {
+            color: $fgColor;
+        }
+        a:active, a:hover, a:focus {
+            background-color: $bgColor * $darkenFactor;
+            color: $fgColor;
+        }
+    }
+    .open {
+        a:active, a:hover, a:focus {
+            background-color: $bgColor * $darkenFactor;
+        }
+        .dropdown-menu {
+            background-color: $bgColor * $lightenFactor;
+        }
+    }
 }

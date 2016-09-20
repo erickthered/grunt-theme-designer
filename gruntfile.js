@@ -36,6 +36,13 @@ module.exports = function (grunt) {
             html: {
                 src: 'src/index.html',
                 dest: 'dist/index.html'
+            },
+            fonts: {
+                expand: true,
+                flatten: true,
+                src: ['src/components/bootstrap/fonts/**', 'src/components/font-awesome/fonts/**'],
+                dest: 'dist/fonts/',
+                filter: 'isFile'
             }
         },
         bower: {
@@ -69,6 +76,7 @@ module.exports = function (grunt) {
                 },
                 src: [
                     'src/components/bootstrap/dist/css/bootstrap.css',
+                    'src/components/font-awesome/css/font-awesome.css',
                     'src/css/*.css',
                 ],
                 dest: 'dist/css/all.css'
@@ -185,7 +193,7 @@ module.exports = function (grunt) {
         mkdir: {
             all: {
                 options: {
-                    create: ['dist', 'dist/js', 'dist/css', 'dist/img']
+                    create: ['dist', 'dist/js', 'dist/css', 'dist/img', 'dist/fonts']
                 },
             },
         },
@@ -222,7 +230,7 @@ module.exports = function (grunt) {
     //     },
     // });
 
-    grunt.registerTask('prepare', ['clean:all', 'mkdir', 'bower', 'javascript', 'css', 'sass', 'imagemin', 'copy:html']);
+    grunt.registerTask('prepare', ['clean:all', 'mkdir', 'bower', 'javascript', 'css', 'sass', 'imagemin', 'copy']);
     grunt.registerTask('javascript', ['jshint', 'concat:javascript', 'uglify']);
     grunt.registerTask('css', ['csslint', 'concat:css', 'cssmin']);
     grunt.registerTask('serve', ['connect', 'open:dev']);
